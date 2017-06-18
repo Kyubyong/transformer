@@ -7,10 +7,10 @@
   * nltk
 
 ## Why This Project?
-I tried to implement the idea in [Attention Is All You Need](https://arxiv.org/abs/1706.03762). They authors claim that they outperformed the state-of-the-art model in machine translation with only attention, no CNNs, no RNNs. How cool it is! At the end of the paper, they say they will make their code available soon, but apparently it is not so yet. I have two goals with this project. One is I wanted to have a full understanding of the paper. Often it's hard for me to have a good grasp before writing some code for it. Another is to help people who want to see its implementation before the authors officially unveil their code.
+I tried to implement the idea in [Attention Is All You Need](https://arxiv.org/abs/1706.03762). They authors claimed that their model, the Transformer, outperformed the state-of-the-art one in machine translation with only attention, no CNNs, no RNNs. How cool it is! At the end of the paper, they promise they will make their code available soon, but apparently it is not so yet. I have two goals with this project. One is I wanted to have a full understanding of the paper. Often it's hard for me to have a good grasp before writing some code for it. Another is to share my code with people who are interested in this model before the official code is unveiled.
 
 ## Differences with the original paper
-I don't intend to replicate exactly the paper. Rather, I want to implement the main ideas in the paper and verify it in a SIMPLE and QUICK way. In this respect, some parts in my code are different than those in the paper. Among them are
+I don't intend to replicate the paper exactly. Rather, I aim to implement the main ideas in the paper and verify them in a SIMPLE and QUICK way. In this respect, some parts in my code are different than those in the paper. Among them are
 * I used the IWSLT 2016 de-en dataset, not the wmt dataset because the former is much smaller, and requires no special preprocessing.
 * I constructed vocabulary with words, not subwords for simplicity. Of course, you can try bpe or word-piece if you want.
 * I parameterized positional encoding. The paper used some sinusoidal formula, but Noam, one of the authors, says they both work. See the [discussion in reddit](https://www.reddit.com/r/MachineLearning/comments/6gwqiw/r_170603762_attention_is_all_you_need_sota_nmt/)
