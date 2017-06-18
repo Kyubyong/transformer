@@ -1,0 +1,1409 @@
+- source: Sie war eine jährige Frau namens Alex
+- expected: She was a yearold woman named Alex
+- got: She was a woman named yearold name
+
+- source: Und als ich das hörte war ich erleichtert
+- expected: Now when I heard this I was so relieved
+- got: And when I heard that I was an <UNK>
+
+- source: Meine Kommilitonin bekam nämlich einen Brandstifter als ersten Patienten
+- expected: My classmate got an arsonist for her first client
+- got: Because my first <UNK> came from an in patients
+
+- source: Das kriege ich hin dachte ich mir
+- expected: This I thought I could handle
+- got: I'll go ahead and I thought
+
+- source: Aber ich habe es nicht hingekriegt
+- expected: But I didn't handle it
+- got: But I didn't <UNK> it
+
+- source: Ich hielt dagegen
+- expected: I pushed back
+- got: I thought about it
+
+- source: Das ist es was Psychologen einen AhaMoment nennen
+- expected: That's what psychologists call an Aha moment
+- got: That's what a <UNK> like a <UNK>
+
+- source: Meldet euch wenn ihr in euren ern seid
+- expected: Raise your hand if you're in your s
+- got: Get yourself in your s
+
+- source: Ich möchte ein paar von euch sehen
+- expected: I really want to see some twentysomethings here
+- got: I want to see some of you
+
+- source: Oh yeah Ihr seid alle unglaublich
+- expected: Oh yay Y'all's awesome
+- got: Oh yeah you all are incredibly
+
+- source: Dies ist nicht meine Meinung Das sind Fakten
+- expected: This is not my opinion These are the facts
+- got: This is not my opinion These are facts
+
+- source: Werdet nicht panisch wenn ihr über  seid
+- expected: People who are over  don't panic
+- got: Don't <UNK> if you're off about percent
+
+- source: Dieser Gruppe wird es gut gehen glaube ich
+- expected: This crowd is going to be fine I think
+- got: This group that's going to be good
+
+- source: Die Presse redet über die Zeitverschiebung des Erwachsenwerdens
+- expected: Newspapers talk about the changing timetable of adulthood
+- got: The press started talking about the <UNK> <UNK>
+
+- source: Wissenschaftler nennen die er eine verlängerte Pubertät
+- expected: Researchers call the s an extended adolescence
+- got: Scientists call that a <UNK> hit hit by government
+
+- source: Das stimmt
+- expected: It's true
+- got: It's true
+
+- source: Stimmt das nicht
+- expected: Isn't that true
+- got: Isn't that
+
+- source: Gar nichts
+- expected: Nothing happens
+- got: Nothing else
+
+- source: Wo sind die Leute in den ern hier
+- expected: Where are the twentysomethings here
+- got: Where are people in the s here
+
+- source: Macht das nicht
+- expected: Do not do that
+- got: Does that not
+
+- source: Es ist die Geschichte von Emma
+- expected: It's a story about a woman named Emma
+- got: This is the story of at about way
+
+- source: Das ist Prokastination
+- expected: That's procrastination
+- got: This is <UNK>
+
+- source: Was geschah also mit Emma
+- expected: So what happened to Emma
+- got: So what happened to business
+
+- source: Es ist so einfach ihnen zu helfen
+- expected: They are so easy to help
+- got: It's so easy to help them
+
+- source: Ihr entscheidet gerade jetzt über euer Leben
+- expected: You're deciding your life right now
+- got: Your couple of you're just going to be alive
+
+- source: Vielen Dank
+- expected: Thank you
+- got: Thank you
+
+- source: Ich habe mir vorgestellt wie das aussehen würde
+- expected: I started to imagine what this would look like
+- got: I was introduced going to look like this
+
+- source: Mit diesem Werkzeug wurde die Grenze also durchbrochen
+- expected: So with this tool this boundary has been broken
+- got: So with this instrument was given the line
+
+- source: Aber unsere Hände bleiben immer noch außerhalb des Bildschirms
+- expected: But our two hands still remain outside the screen
+- got: But our hands and don't remain outside the <UNK>
+
+- source: Wie würde eine solche Zukunft aussehen
+- expected: What would such a future look like
+- got: What would a future like this
+
+- source: Vielen Dank
+- expected: Thank you
+- got: Thank you
+
+- source: Aber meine Mutter sagte Nein
+- expected: But my tiger mother said No
+- got: But my mom said No
+
+- source: Aber die Erwachsenen mochten meine Idee nicht
+- expected: But no adults liked the idea
+- got: But the adults they didn't like my idea
+
+- source: Mein Traum würde also nie wahr werden
+- expected: My dream would never come true
+- got: So my dream would never be true
+
+- source: Aber das ist so ungerecht
+- expected: But that's so unfair
+- got: But this is so <UNK>
+
+- source: Keiner da um mich etwas zu lehren Auch gut
+- expected: Nobody around to teach me Fine
+- got: No one around me to teach you something good
+
+- source: Also wendete ich mich Büchern zu
+- expected: I turned to books
+- got: So I <UNK> to books on this
+
+- source: Natürlich Bücher die in China verboten sind
+- expected: Books banned in China of course
+- got: Of course books are <UNK> in China are certainly
+
+- source: Die gute Erde handelt vom Leben der chinesischen Bauern
+- expected: The Good Earth is about Chinese peasant life
+- got: The good Earth is about farmers the Chinese language
+
+- source: Die Bibel ist interessant aber seltsam
+- expected: The Bible is interesting but strange
+- got: The Bible is interesting but odd
+
+- source: Aber das ist ein Thema für ein anderes Mal
+- expected: That's a topic for a different day
+- got: But that's a bit different times to the topic
+
+- source: Dies gewährt viele Einblicke
+- expected: It offers many insights
+- got: This is a lot of writing in these kinds
+
+- source: Das vergleichende Lesen ist eigentlich nichts Neues
+- expected: Comparative reading actually is nothing new
+- got: The experience of reading is actually nothing new
+
+- source: In der akademischen Welt ist es ein Standardverfahren
+- expected: It's a standard practice in the academic world
+- got: In the world it's a world it's a <UNK>
+
+- source: So begann ich immer zwei Bücher gleichzeitig zu lesen
+- expected: So I started reading books in pairs
+- got: So I started to read two books
+
+- source: Braut im Chinesischen bedeutet wörtlich übersetzt neue Mutter Ohoh
+- expected: Bride in Chinese literally means new mother Uhoh
+- got: <UNK> in the <UNK> means new mother new <UNK>
+
+- source: Sogar ein zerplatzter Traum kann diesen Zweck erfüllen
+- expected: Even a shattered dream can do that for you
+- got: Even a <UNK> dream can make those purpose
+
+- source: Mögen Bücher immer mit Ihnen sein
+- expected: So may books be always with you
+- got: <UNK> books always will be with you
+
+- source: Vielen Dank
+- expected: Thank you
+- got: Thank you
+
+- source: Vielen Dank
+- expected: Thank you
+- got: Thank you
+
+- source: Vielen Dank
+- expected: Thank you
+- got: Thank you
+
+- source: Und dann tat ich es
+- expected: And then I did it
+- got: And so I did
+
+- source: Alle Einser
+- expected: All of those A's
+- got: All <UNK>
+
+- source: Ich bin immer noch verdutzt über mein Verhalten
+- expected: And I am still baffled by my behavior
+- got: I'm still a <UNK> about my behavior
+
+- source: Ich verstehe nicht woher der Gedanke kam
+- expected: I don't understand where the idea came from
+- got: I don't understand where the thought came from
+
+- source: Ich fühlte mich richtig gut
+- expected: I felt great
+- got: I felt really good
+
+- source: Es war doch so offensichtlich
+- expected: I mean it should have been so blatantly obvious
+- got: It was obvious
+
+- source: Ich wurde nie erwischt
+- expected: I was never caught
+- got: I was never caught
+
+- source: Eifersucht verblüfft mich
+- expected: Jealousy baffles me
+- got: <UNK> <UNK> me
+
+- source: Sie ist so geheimnisvoll so tiefgreifend
+- expected: It's so mysterious and it's so pervasive
+- got: It's so uncomfortable
+
+- source: Wir wissen dass Babys unter Eifersucht leiden
+- expected: We know babies suffer from jealousy
+- got: We know that babies <UNK> under beautiful bit
+
+- source: Also keine untreue Helena keine Odyssee
+- expected: Well no faithless Helen no Odyssey
+- got: So no <UNK> no I do not think <UNK>
+
+- source: Kein eifersüchtiger König keine Abenteuer aus  Nacht
+- expected: No jealous king no Arabian Nights
+- got: No <UNK> king had no night
+
+- source: Kein Shakespeare
+- expected: No Shakespeare
+- got: No that <UNK>
+
+- source: Wir denken an ein Stück Kuchen in LavendelTee eingetaucht
+- expected: We think about a madeleine moistened in lavender tea
+- got: We think of an enormous amount of <UNK>
+
+- source: Wir vergessen wie rau seine Vision war
+- expected: We forget how harsh his vision was
+- got: We forget <UNK> his vision was his vision
+
+- source: Wir vergessen wie erbarmungslos er ist
+- expected: We forget how pitiless he is
+- got: We forget how <UNK> it is
+
+- source: Wenn wir eifersüchtig sind erzählen wir uns eine Geschichte
+- expected: When we feel jealous we tell ourselves a story
+- got: When we were tell us a story
+
+- source: Eifersucht ist ermüdend
+- expected: Jealousy is exhausting
+- got: <UNK> is an <UNK> <UNK>
+
+- source: Es ist ein hungriges Gefühl das genährt werden muss
+- expected: It's a hungry emotion It must be fed
+- got: It's a very difficult feeling to be <UNK>
+
+- source: Was mag die Eifersucht
+- expected: And what does jealousy like
+- got: What is the <UNK>
+
+- source: Eifersucht mag Informationen
+- expected: Jealousy likes information
+- got: It's kind of information
+
+- source: Eifersucht mag Details
+- expected: Jealousy likes details
+- got: <UNK> say details
+
+- source: Eifersucht mag Fotos
+- expected: Jealousy likes photos
+- got: You know kind of like pictures
+
+- source: Deshalb ist Instagram auch so erfolgreich
+- expected: That's why Instagram is such a hit
+- got: So <UNK> is also successful
+
+- source: Freud sollte später darüber schreiben
+- expected: Freud would write about this later
+- got: <UNK> should write about this later
+
+- source: Weil sie unschuldig ist und jeder weiß das
+- expected: Because she's blameless everybody knows it
+- got: Because she is set out and it's the one
+
+- source: Der Roman ist sehr gut in diesem Punkt
+- expected: The novel is very good on this point
+- got: The novel is very good at this point
+
+- source: Ein ganzes Jahr lang
+- expected: For a year A year
+- got: It's an entire year
+
+- source: Weil Lassen Sie uns mal ehrlich sein
+- expected: Because I mean let's be real
+- got: Because let's be honest
+
+- source: Welch ungeheure wenn auch deplatzierte Kreativität Stimmt's
+- expected: What immense if misplaced creativity Right
+- got: <UNK> about military if you have it right
+
+- source: Das ist etwas aus einem Roman
+- expected: This is something from a novel
+- got: This is something from a novel
+
+- source: Das ist etwas aus einem Roman von Patricia Highsmith
+- expected: This is something from a Patricia Highsmith novel
+- got: This is a little bit from a novel <UNK>
+
+- source: Highsmith ist eine meiner Lieblingsschriftstellerinnen
+- expected: Now Highsmith is a particular favorite of mine
+- got: <UNK> <UNK> is one of my <UNK>
+
+- source: Nehmen wir Tom Ripley ihre berühmteste Figur
+- expected: Take Tom Ripley her most famous character
+- got: Let's take Tom <UNK> <UNK>
+
+- source: Das ist eine Methode
+- expected: That's one way to go
+- got: This is a way of method
+
+- source: Wir leben in einer eifersuchtsanfälligen Zeit
+- expected: We live in jealous times
+- got: We live in a <UNK> time
+
+- source: Das ist mir so vertraut
+- expected: Oh it's so familiar to me
+- got: So this is very familiar
+
+- source: Wir sind stolz auf Sie
+- expected: We're proud of you
+- got: We're proud of you
+
+- source: Und im nächsten Moment liegen sie auf einer Wellenlänge
+- expected: The next minute they're on the same side
+- got: And the next moment they're <UNK>
+
+- source: Ist es denn wirklich so einfach
+- expected: Could it be so simple though
+- got: Because it's really simple
+
+- source: Wir könnten uns aneinander ausrichten
+- expected: We could align ourselves with it
+- got: We could go ahead with us
+
+- source: Aber ich mag Notfallpläne
+- expected: But I like contingency plans
+- got: But I like to <UNK>
+
+- source: Literatur allein enträtselt die Eifersucht
+- expected: Fiction alone demystifies jealousy
+- got: <UNK> alone was <UNK>
+
+- source: Literatur allein kann sie zähmen lädt sie ein
+- expected: Fiction alone domesticates it invites it to the table
+- got: <UNK> alone can be under a bit of <UNK>
+
+- source: Wir befinden uns in exzellenter Gesellschaft
+- expected: We are in excellent company
+- got: We are in this field of <UNK> society
+
+- source: Vielen Dank
+- expected: Thank you
+- got: Thank you
+
+- source: Es war ein wunderschöner Tag
+- expected: It was a beautiful day
+- got: It was a day of <UNK>
+
+- source: Der Wald funkelte
+- expected: The forest was sparkling
+- got: The forest was <UNK>
+
+- source: Wir kamen zu unserem Zeltplatz
+- expected: We got to our campsite
+- got: We got to our work life
+
+- source: Wer räumt nach uns auf
+- expected: Who cleans up after us
+- got: Who keeps us
+
+- source: Ich wollte sie kennenlernen  als Individuen
+- expected: I wanted to get to know them as individuals
+- got: I wanted to meet her individuals
+
+- source: Ich wollte verstehen wer den Job macht
+- expected: I wanted to understand who takes the job
+- got: I wanted to understand who does that job
+
+- source: Also startete ich ein Forschungsprojekt mit ihnen
+- expected: So I started a research project with them
+- got: So I started a <UNK> show with them
+
+- source: Ich musste noch tiefer gehen
+- expected: I needed to go deeper
+- got: I had to go further in
+
+- source: Also nahm ich einen Job als Reinigungskraft an
+- expected: So I took the job as a sanitation worker
+- got: So I took a job as a job
+
+- source: Es war ein bemerkenswertes Privileg und eine aufregende Erfahrung
+- expected: It was a remarkable privilege and an amazing education
+- got: It's been an amazing privilege and an exciting experience
+
+- source: Jeder fragt nach dem Gestank
+- expected: Everyone asks about the smell
+- got: Everybody says <UNK> to the <UNK>
+
+- source: Dann ist da die Gefahr
+- expected: Then there's the danger
+- got: And then there's danger
+
+- source: Das ist wirklich schlecht für die Arbeiter
+- expected: That's really bad for the worker
+- got: It's really bad for the workers
+
+- source: Ich lernte auch über die Unbarmherzigkeit des Mülls
+- expected: I also learned about the relentlessness of trash
+- got: I learned about the <UNK> of <UNK>
+
+- source: Er hört nicht auf zu entstehen
+- expected: It never stops coming
+- got: Now he doesn't stop happening
+
+- source: Er muss immer in Bewegung sein
+- expected: It must always be in motion
+- got: It has to be in movement
+
+- source: Und dann ist da das Stigma
+- expected: And then there's the stigma
+- got: And then that's the much the front person
+
+- source: Sie sind die Wächter der öffentlichen Gesundheit
+- expected: They are the first guardians of public health
+- got: They are the <UNK> of public health
+
+- source: Die Wirtschaft braucht sie
+- expected: The economy needs them
+- got: The economy needs them
+
+- source: Ihre Arbeit so denke ich ist irgendwie liturgisch
+- expected: Their work I think is kind of liturgical
+- got: Her work I think that's kind of <UNK>
+
+- source: Sie sehen die Straßen jeden Tag regelmäßig
+- expected: They're on the streets every day rhythmically
+- got: You see the streets of mean every day
+
+- source: Sie tragen in vielen Städten Uniformen
+- expected: They wear a uniform in many cities
+- got: They wear in many <UNK>
+
+- source: Man weiß wann man sie erwarten kann
+- expected: You know when to expect them
+- got: You know when you can expect to expect
+
+- source: Und ihre Arbeit lässt uns unsere tun
+- expected: And their work lets us do our work
+- got: And their work makes us our to do
+
+- source: Sie sind wie eine Rückversicherung
+- expected: They are almost a form of reassurance
+- got: They're like a <UNK>
+
+- source: Alles wird gut
+- expected: We're going to be okay
+- got: Everything is going to be good
+
+- source: Ich wollte glauben dass Paulie recht hatte
+- expected: I want to believe that Paulie was right
+- got: I wanted to believe that <UNK> was right
+
+- source: Alles wird gut
+- expected: We are going to be okay
+- got: Everything is going to be good
+
+- source: Es ist eine bemerkenswerte Statistik
+- expected: It's a remarkable statistic
+- got: It's a remarkable new place
+
+- source: Nehmen Sie sich einen Moment sich zu bedanken
+- expected: Take a moment to say thank you
+- got: Take a moment to thank you
+
+- source: Hallo TEDWomen was geht
+- expected: Hello TEDWomen what's up
+- got: Hello <UNK> what goes
+
+- source: Das reicht nicht
+- expected: Not good enough
+- got: That's not enough
+
+- source: Hallo TEDWomen was geht
+- expected: Hello TEDWomen what is up
+- got: Hello <UNK> what goes
+
+- source: Schaut mal
+- expected: Look
+- got: Look that
+
+- source: Zerebralparese ist nicht genetisch
+- expected: CP is not genetic
+- got: <UNK> is not genetic
+
+- source: Sie ist kein Geburtsfehler Man kann sie nicht kriegen
+- expected: It's not a birth defect You can't catch it
+- got: It's not <UNK> You can't have them
+
+- source: Kommt mal kurz mit
+- expected: Come on a journey with me
+- got: Come on for a minute
+
+- source: Sechzehn leere Behindertenparkplätze
+- expected: Sixteen empty handicapped spaces
+- got: <UNK> empty <UNK>
+
+- source: Cliffside Park in New Jersey ist meine Heimatstadt
+- expected: Cliffside Park New Jersey is my hometown
+- got: <UNK> park in New York my view is <UNK>
+
+- source: Ich habe am Broadway gesteppt
+- expected: I have tapdanced on Broadway
+- got: I've got the <UNK> <UNK>
+
+- source: Ja am Broadway Total verrückt
+- expected: Yeah on Broadway It's crazy
+- got: Yes <UNK> at the crazy <UNK>
+
+- source: Aber eine Wunderkur fanden wir Yoga
+- expected: But one miracle cure we did find was yoga
+- got: But a <UNK> we found <UNK>
+
+- source: Jetzt kann ich auch auf dem Kopf stehen
+- expected: And now I can stand on my head
+- got: So now I can also stand up with your head
+
+- source: Alle liebten mich
+- expected: Everybody loved me
+- got: Everybody loved to me
+
+- source: Aber ich bekam nie eine Rolle
+- expected: But I never got cast
+- got: But I never got a role
+
+- source: Ein Stück über ein Mädchen mit CP
+- expected: It's a play about a girl with CP
+- got: A piece of girls about a girl
+
+- source: Ich war ein Mädchen mit CP
+- expected: I was a girl with CP
+- got: I was a girl with <UNK>
+
+- source: Ich habe Zerebralparese
+- expected: I have cerebral palsy
+- got: I have <UNK>
+
+- source: Endlich frei Endlich frei
+- expected: Free at last Free at last
+- got: Finally end up free
+
+- source: Gott sei Dank ich bin endlich frei
+- expected: Thank God almighty I'm free at last
+- got: Thank God I am finally for
+
+- source: Ich bekam die Rolle nicht
+- expected: I didn't get the part
+- got: I didn't get the role
+
+- source: Sherry Brown bekam die Rolle
+- expected: Sherry Brown got the part
+- got: <UNK> Brown got the role to play
+
+- source: Die Uni imitierte das Leben
+- expected: College was imitating life
+- got: The university <UNK> the life
+
+- source: Mein Traum wurde wahr
+- expected: My dream was coming true
+- got: My dream was true
+
+- source: Sie stellten nur perfekte Leute ein
+- expected: They only hired perfect people
+- got: They just found some perfect people
+
+- source: Aber Ausnahmen bestätigen ja die Regel
+- expected: But there were exceptions to the rule
+- got: But exceptions for that time yes
+
+- source: Also wurde ich Komikerin
+- expected: So I became a comic
+- got: So I became a <UNK>
+
+- source: Mein großer Durchbruch war
+- expected: My big break came in
+- got: My big break was
+
+- source: Und wir waren live
+- expected: And we were live right
+- got: And we were live
+
+- source: Ey ist die bekloppt
+- expected: Yo is she retarded
+- got: <UNK> is the most complex
+
+- source: Und mein Favorit Armer HängelippenTerrorist
+- expected: And my favorite Poor Gumbymouth terrorist
+- got: And my <UNK> <UNK> <UNK>
+
+- source: Hat sie ne Krankheit
+- expected: What does she suffer from
+- got: Did she have it <UNK>
+
+- source: Wir sollten für sie beten
+- expected: We should really pray for her
+- got: We should pray for them
+
+- source: Eine Behinderung ist so sichtbar wie die Herkunft
+- expected: Disability is as visual as race
+- got: A high is how invisible to the background
+
+- source: Oder vielleicht nicht
+- expected: Or maybe not
+- got: Or maybe not
+
+- source: Menschen starben darunter auch die Besatzung der Apollo
+- expected: People died including the crew of Apollo
+- got: People are also dying of <UNK> Apollo
+
+- source: Doch warum gingen sie
+- expected: So why did they go
+- got: But why did they go
+
+- source: Ich erinnere mich noch daran wie ich als Fünfjähriger
+- expected: I remember watching the liftoff of Apollo
+- got: I remember thinking of it as I <UNK>
+
+- source: Man hört es überall
+- expected: You hear it all the time
+- got: You hear it everywhere
+
+- source: Sie haben unser Leben verlängert und bereichert
+- expected: They've expanded and enriched our lives
+- got: It has our lives saved and more <UNK>
+
+- source: Doch sie lösen nicht die großen Probleme der Menschheit
+- expected: But they don't solve humanity's big problems
+- got: But they don't solve the big issues of problems
+
+- source: Was ist passiert
+- expected: What happened
+- got: What happened
+
+- source: Aber diese Erklärung ist mir nicht gut genug
+- expected: But I don't think that explanation is good enough
+- got: But that explanation doesn't mean enough is fine
+
+- source: Es erklärt hauptsächlich was mit Silicon Valley nicht stimmt
+- expected: It mostly explains what's wrong with Silicon Valley
+- got: It makes an amazing thing not <UNK> in Valley
+
+- source: Wir könnten zum Mars fliegen wenn wir wollen
+- expected: We could go to Mars if we want
+- got: We could fly to Mars when we want
+
+- source: NASA hat sogar schon einen Plan entworfen
+- expected: NASA even has the outline of a plan
+- got: NASA even has a plan already
+
+- source: Schwierige Probleme sind schwierig
+- expected: Hard problems are hard
+- got: <UNK> problems are difficult
+
+- source: Es nicht das Jahr
+- expected: It is not
+- got: It didn't
+
+- source: Er war nur drei Tage entfernt
+- expected: It was just three days away
+- got: He was only three days away
+
+- source: Weiß Gott es fehlt uns jedenfalls nicht an Herausforderungen
+- expected: God knows we don't lack for the challenges
+- got: Does God have it missing We don't be challenges
+
+- source: Vielen Dank
+- expected: Thank you very much
+- got: Thank you
+
+- source: Ich möchte euch einladen eure Augen zu schließen
+- expected: I'd like to invite you to close your eyes
+- got: I want to So you to finish your eyes
+
+- source: Du musst dir das wirklich vorstellen
+- expected: I need you to actually see this
+- got: You need to really show you
+
+- source: Das Licht scheint auf das Krümelmonster
+- expected: The light is shining down on Cookie Monster
+- got: It seems that light will turn off
+
+- source: Einem sprechenden Pferd
+- expected: It's a talking horse
+- got: <UNK> <UNK> horse
+
+- source: Jetzt folge mir in deine Küche
+- expected: And then follow me into your kitchen
+- got: Now I'm <UNK> in your kitchen
+
+- source: Okay Jetzt öffne die Augen
+- expected: Okay Open your eyes
+- got: Okay Now your eyes are <UNK>
+
+- source: Er heißt United States Memory Championship
+- expected: It's called the United States Memory Championship
+- got: It's called the <UNK> <UNK> <UNK> <UNK>
+
+- source: Das ist verrückt
+- expected: I was like this is unbelievable
+- got: This is crazy
+
+- source: Diese Leute müssen übernatürliche Fähigkeiten haben
+- expected: These people must be freaks of nature
+- got: These people have to have little skills
+
+- source: Und Ed sagte Ich bin kein Inselbegabter
+- expected: And Ed was like I'm not a savant
+- got: And said I'm not a <UNK>
+
+- source: Ich habe nur ein durchschnittliches Gedächtnis
+- expected: In fact I have just an average memory
+- got: I just have a memory of memory
+
+- source: Kennst du Britney Spears
+- expected: Do you know Britney Spears
+- got: Do you want to have a sense of <UNK>
+
+- source: Ich Was Nee Wieso
+- expected: I'm like What No Why
+- got: I said What
+
+- source: Ich meine du musst ja irgendwo anfangen nicht wahr
+- expected: I mean you've got to start somewhere right
+- got: I mean you have to start somewhere right
+
+- source: Ich habe eine Menge wirklich interessanter Leute getroffen
+- expected: I met a host of really interesting people
+- got: I really met a lot of really interesting people
+
+- source: Das hier ist zum Beispiel EP
+- expected: This is a guy called EP
+- got: So here's for example
+
+- source: Kim Peek kennen
+- expected: This is Kim Peek
+- got: In fact <UNK>
+
+- source: Die Antwort war Nein
+- expected: The answer was no
+- got: The answer was no
+
+- source: Sind sie klüger als wir
+- expected: Are they smarter than the rest of us
+- got: Are they obviously getting more than that
+
+- source: Ja
+- expected: Yeah
+- got: Yes
+
+- source: Das ist sein Name
+- expected: That's his name
+- got: It is his name
+
+- source: Weißt du noch welches Wort es war
+- expected: Do you remember what it was
+- got: You know what happened
+
+- source: Gleiches Wort unterschiedliches Erinnerungsvermögen das ist seltsam
+- expected: Same word different amount of remembering that's weird
+- got: <UNK> word <UNK> word is strange
+
+- source: Was geht hier vor sich
+- expected: What's going on here
+- got: What is going on here
+
+- source: Aber der Beruf des Bäckers wir kennen Bäcker
+- expected: But the common noun baker we know bakers
+- got: But the job of people we know <UNK>
+
+- source: Bäcker tragen komische weiße Mützen
+- expected: Bakers wear funny white hats
+- got: <UNK> wear funny <UNK> or <UNK>
+
+- source: Bäcker haben Mehl an ihren Händen
+- expected: Bakers have flour on their hands
+- got: <UNK> have <UNK> at their hands
+
+- source: Vielleicht kennen wir sogar einen Bäcker
+- expected: Maybe we even know a baker
+- got: We may even know a wonderful paper
+
+- source: Sie wurde als der Gedächtnispalast bekannt
+- expected: It came to be known as the memory palace
+- got: It became known as the <UNK>
+
+- source: Die Körper können nicht richtig bestattet werden
+- expected: The bodies can't be properly buried
+- got: The body cannot be <UNK> right
+
+- source: Es ist eine Tragödie nach der anderen
+- expected: It's one tragedy compounding another
+- got: It's a tragedy after the other
+
+- source: Wie funktioniert es also
+- expected: So how does this work
+- got: So how does it work
+
+- source: Aber es gab da ein Problem
+- expected: But there was a problem
+- got: But there was just this one problem
+
+- source: Vielleicht ein Gedicht oder
+- expected: Maybe it was a poem
+- got: Maybe a poem is or a poem
+
+- source: Ich musste feststellen dass es erstaunlich viel Spaß macht
+- expected: And I found that this was shockingly fun
+- got: I had to tell it it's much fun
+
+- source: Ich konnte mir das niemals vorstellen
+- expected: I never would have expected that
+- got: I could never imagine it
+
+- source: Ich vertiefte mich darin
+- expected: And I got pretty into it
+- got: I am crying in it
+
+- source: Das sind nur Tricks
+- expected: These are just tricks
+- got: That's just tricks
+
+- source: Gute Gedächtnisse sind antrainiert
+- expected: Great memories are learned
+- got: Good news <UNK> are <UNK>
+
+- source: Wir erinnern uns wenn wir engagiert sind
+- expected: We remember when we are deeply engaged
+- got: We remember when we were involved
+
+- source: Der Gedächtnispalast diese Gedächtnistechniken sie sind alle nur Abkürzungen
+- expected: The memory palace these memory techniques they're just shortcuts
+- got: The <UNK> of these are all <UNK>
+
+- source: Tatsächlich sind es nicht mal wirkliche Abkürzungen
+- expected: In fact they're not even really shortcuts
+- got: In fact it's not real your real business at
+
+- source: Sie funktionieren weil sie uns zwingen zu arbeiten
+- expected: They work because they make you work
+- got: They work because they work to do
+
+- source: Aber es sind keine Abkürzungen
+- expected: But there actually are no shortcuts
+- got: But it's not a special interest group
+
+- source: So werden Dinge im Gedächtnis verankert
+- expected: This is how stuff is made memorable
+- got: That's how things will be <UNK> in the memory
+
+- source: Danke
+- expected: Thank you
+- got: Thank you
+
+- source: Wie jeder Lehrer führte ich Tests und Prüfungen durch
+- expected: And like any teacher I made quizzes and tests
+- got: Like everyone I've <UNK> tests and I <UNK>
+
+- source: Ich gab Hausaufgaben auf
+- expected: I gave out homework assignments
+- got: I was <UNK>
+
+- source: Als die Arbeiten zurückkamen berechnete ich Noten
+- expected: When the work came back I calculated grades
+- got: As a works I <UNK> grades
+
+- source: Einige meiner schlauesten Kinder schnitten nicht besonders gut ab
+- expected: Some of my smartest kids weren't doing so well
+- got: Some of my kids <UNK> don't do well
+
+- source: Das ließ mich nachdenken
+- expected: And that got me thinking
+- got: So that was looking at me
+
+- source: und wer das meiste Geld verdienen würde
+- expected: And who's going to earn the most money
+- got: Who who would make money
+
+- source: Uns es war nicht soziale Intelligenz
+- expected: And it wasn't social intelligence
+- got: We didn't start social intelligence
+
+- source: Es war Durchhaltevermögen
+- expected: It was grit
+- got: It was a great deal
+
+- source: Durchhaltevermögen ist Leidenschaft und Ausdauer für sehr langfristige Ziele
+- expected: Grit is passion and perseverance for very longterm goals
+- got: <UNK> is passion and <UNK> <UNK> to have
+
+- source: Durchhaltevermögen ist Stehvermögen
+- expected: Grit is having stamina
+- got: <UNK> is an <UNK> <UNK>
+
+- source: Die ehrliche Antwort Ich weiß es nicht
+- expected: The honest answer is I don't know
+- got: The <UNK> answer I don't know
+
+- source: Aber wir brauchen mehr
+- expected: But we need more
+- got: But we need more
+
+- source: Das ist die Arbeit die vor uns liegt
+- expected: That's the work that stands before us
+- got: This is the work that we're talking about
+
+- source: Vielen Dank
+- expected: Thank you
+- got: Thank you
+
+- source: Ich überlegte auch Wie schließen wir das Gebäude
+- expected: I also thought how to close the building
+- got: And I tried How on how we <UNK> it
+
+- source: Es verstärkt auch das Konzept der Tore
+- expected: And it also reinforces this idea of the gates
+- got: It also increases the concept of <UNK>
+
+- source: Vielen Dank
+- expected: Thank you very much
+- got: Thank you
+
+- source: Davon gibt es meiner Ansicht nach drei
+- expected: And I think there are three
+- got: There is some of my view of my view
+
+- source: Mir fehlt der Überblick
+- expected: I don't have an overview
+- got: I missing the whole thing
+
+- source: Aber ist das ein guter Beweis
+- expected: But is that good evidence
+- got: But is that a good evidence
+
+- source: Meinungsumfragen erheben  klar  Meinungen
+- expected: What opinion polls record is of course opinions
+- got: <UNK> They don't really want opinions
+
+- source: Was könnten sie sonst erheben
+- expected: What else can they record
+- got: What else could they do <UNK>
+
+- source: Vertrauen Sie Politikern Vertrauen Sie Lehrern
+- expected: Do you trust politicians Do you trust teachers
+- got: And you trust it trust teachers
+
+- source: Vertrauen Sie Fischhändlern
+- expected: Do you trust fishmongers
+- got: And you can trust it
+
+- source: Vertrauen Sie Grundschullehrern
+- expected: Do you trust elementary school teachers
+- got: And you can trust it
+
+- source: dann würden Sie wohl fragen Inwiefern genau
+- expected: you would probably begin by saying To do what
+- got: You would think that's probably more difficult
+
+- source: Und das wäre eine vernünftige Reaktion
+- expected: And that would be a perfectly sensible response
+- got: And that would be an <UNK> response
+
+- source: Völlig rational
+- expected: That's a perfectly rational thing
+- got: <UNK> rational
+
+- source: Einfach
+- expected: Simple
+- got: Simple
+
+- source: Zweitens kommen wir zum Ziel
+- expected: Secondly what about the aim
+- got: Secondly we come to the goal
+
+- source: Das Ziel ist es mehr zu vertrauen
+- expected: The aim is to have more trust
+- got: The goal is to trust anymore
+
+- source: Ehrlich gesagt finde ich das Ziel dumm
+- expected: Well frankly I think that's a stupid aim
+- got: The word I thought that was stupid
+
+- source: Darauf würde ich nicht abzielen
+- expected: It's not what I would aim at
+- got: I wouldn't look at it
+
+- source: Die Vertrauenswürdigkeit von Menschen einschätzen zu können
+- expected: It's judging how trustworthy people are in particular respects
+- got: The actually from humans you can get some <UNK>
+
+- source: Sind sie kompetent Sind sie ehrlich Sind sie verlässlich
+- expected: Are they competent Are they honest Are they reliable
+- got: Are they <UNK> Are Are Are they're honest <UNK>
+
+- source: Falls doch habe ich es noch nicht erkannt
+- expected: If so I haven't yet spotted it
+- got: If you still don't have the more <UNK>
+
+- source: Aber danach suchen wir erst Vertrauenswürdigkeit dann Vertrauen
+- expected: But that's what we're looking for trustworthiness before trust
+- got: But after that we're looking for other trust
+
+- source: Vertrauen ist die Reaktion
+- expected: Trust is the response
+- got: And you can see the response
+
+- source: Viele dieser Systeme haben den gegenteiligen Effekt
+- expected: A lot of these systems have the converse effect
+- got: Many of these systems have <UNK> effect
+
+- source: Sie funktionieren nicht wie beabsichtigt
+- expected: They don't work as they're supposed to
+- got: They don't work like <UNK>
+
+- source: Hierzu kann sicherlich jeder Beispiele beitragen
+- expected: You can all give your own examples there
+- got: <UNK> can certainly put a examples of it
+
+- source: So viel also zum Ziel
+- expected: So so much for the aim
+- got: So much for the goal
+
+- source: Und nun zur Aufgabe
+- expected: Now thirdly the task
+- got: And now for the task
+
+- source: Wir können das natürlich für uns selbst tun
+- expected: Well we can do that for ourselves
+- got: We can do that for natural to ourselves
+
+- source: Wir können ein bisschen Vertrauenswürdigkeit gewinnen
+- expected: We can rebuild a bit of trustworthiness
+- got: We can win a little <UNK>
+
+- source: Man muss also vertrauenswürdig sein
+- expected: So you have to I think be trustworthy
+- got: So you have to be the right around
+
+- source: Wie geht das
+- expected: How to do it
+- got: How does this happen
+
+- source: Hier ist ein einfaches kommerzielles Beispiel
+- expected: Let me give you a simple commercial example
+- got: Here's a real simple example
+
+- source: Darin steckt eine wichtige Moral
+- expected: I think there's a big lesson in that
+- got: This is an important morality
+
+- source: Danke
+- expected: Thanks
+- got: Thank you
+
+- source: Der Film hat sie monatelang nicht mehr losgelassen
+- expected: It totally dominated her imagination for months
+- got: It has no <UNK> she didn't have the movie
+
+- source: Ihr Lieblingscharakter war natürlich Glinda
+- expected: Her favorite character was Glinda of course
+- got: And so of course the match was <UNK>
+
+- source: Aber Der Zauberer von Oz war anders
+- expected: But The Wizard of Oz stood alone
+- got: But the magic was done by <UNK>
+
+- source: Er hat diesen Trend nicht gestartet
+- expected: It did not start that trend
+- got: He didn't go to this trend
+
+- source: Sie wissen wovon ich rede oder
+- expected: Do you know what I'm talking about
+- got: You know what I do is an talk about
+
+- source: Genau
+- expected: Yeah
+- got: Right
+
+- source: Aber so passiert es nicht
+- expected: But that's not how it happens
+- got: But that's not what happens
+
+- source: Zu jenem Zeitpunkt hatte ich ebenfalls einen Sohn
+- expected: At that point I also had a son
+- got: I think that at a son too
+
+- source: Vergleichen Sie das mit Der Zauberer von Oz von
+- expected: Compare this to  with The Wizard of Oz
+- got: <UNK> this with the magic of magic of <UNK>
+
+- source: Wie bringt Dorothy ihren Film zu einem guten Ende
+- expected: How does Dorothy win her movie
+- got: What does their movie take to a good film
+
+- source: Warum stehst du da noch rum
+- expected: Why are you still standing there
+- got: Why are you still there with it
+
+- source: Ich weiß nicht was ich machen soll
+- expected: I don't know what I'm supposed to do
+- got: I don't know what to do
+
+- source: Es gibt keine Vorbilder für sie
+- expected: There's no models for them
+- got: There are no examples of them
+
+- source: Ich weiß nicht ob Sie schon davon gehört haben
+- expected: I don't know if you've heard of this
+- got: I don't know if you've heard about it
+
+- source: Versuchen Sie einmal diese Voraussetzung zu erfüllen
+- expected: So try to meet that bar
+- got: Try to see this value the value of value
+
+- source: Verstanden Dankeschön
+- expected: Right Thank you
+- got: <UNK> Thank you
+
+- source: Vielen Dank
+- expected: Thank you very much
+- got: Thank you
+
+- source: Er fällt mit wehenden Fahnen durch den BechdelTest
+- expected: It pretty much flunks the Bechdel test
+- got: It falls with the <UNK> <UNK> with the <UNK>
+
+- source: So stellen sich manche Hollywood vor
+- expected: That's Hollywood for you
+- got: That's what some of the months people might think
+
+- source: Elf Das ist nicht übel
+- expected: Eleven It's not bad
+- got: <UNK> <UNK> That's not <UNK>
+
+- source: Sie besagt dass
+- expected: Here's what it said
+- got: It says
+
+- source: Wer sind diese Typen Was lernen sie
+- expected: Who are these guys What are they learning
+- got: Who are these guys What are they learning
+
+- source: Was schaffen sie nicht zu lernen
+- expected: What are they failing to learn
+- got: What are they not to learn
+
+- source: Nehmen wir diese Geschichte so auf
+- expected: Are we soaking up that story
+- got: Let's take this story like this
+
+- source: Sie werden durcheinander gewirbelt
+- expected: They're throwing it up in the air
+- got: They're So <UNK> up
+
+- source: ObiWan
+- expected: ObiWan
+- got: <UNK>
+
+- source: ObiWan Kenobi und Glinda
+- expected: ObiWan Kenobi and Glinda
+- got: <UNK> <UNK> and <UNK>
+
+- source: Was haben diese beiden gemeinsam
+- expected: What do these two have in common
+- got: What do these two things have been common
+
+- source: Vielleicht ist es nicht nur das glitzernde Kleid
+- expected: Maybe it's not just the sparkly dress
+- got: Maybe it's not just the this is <UNK> a
+
+- source: Ich denke diese beiden Figuren sind Experten
+- expected: I think these people are experts
+- got: I think these two characters are what are
+
+- source: Außerdem sind sie Anführer
+- expected: Now they are leaders
+- got: And so of our leaders are in some leaders
+
+- source: Ich möchte mehr Aufgaben wie diese
+- expected: I want more quests like that
+- got: I want to know how those guys
+
+- source: Vielen Dank
+- expected: Thank you
+- got: Thank you
+
+- source: Er lebt in einem kleinen Dorf im Süden Somalias
+- expected: He lives in a small village in southern Somalia
+- got: He lives in a little village in <UNK>
+
+- source: Sein Dorf liegt in der Nähe von Mogadischu
+- expected: His village is near Mogadishu
+- got: His village is in the village of <UNK> <UNK>
+
+- source: Es vergeht vielleicht ein Jahr aber nichts
+- expected: Maybe a year passes nothing
+- got: It might be an <UNK> but nothing
+
+- source: Ihm wird diese junge Frau vorgestellt
+- expected: He is introduced to this young woman
+- got: It gets to introduced this young woman
+
+- source: Schließlich heiratet er
+- expected: He eventually gets married
+- got: Finally he finally
+
+- source: Er beginnt ein neues Leben
+- expected: He starts this new life
+- got: He's starting to make a new life
+
+- source: Sein Leben hat einen Sinn
+- expected: He has a purpose in life
+- got: And you can see life is meaning
+
+- source: Er hatte gewartet
+- expected: He was waiting
+- got: He had wait
+
+- source: haben keine Arbeit gehen nicht zur Schule
+- expected: percent don't work don't go to school
+- got: We don't have a work to school
+
+- source: Sie machen eigentlich gar nichts
+- expected: They pretty much do nothing
+- got: They don't actually do anything
+
+- source: Wäre ich Terrorist geworden
+- expected: Would I have become a terrorist
+- got: Do I have become <UNK>
+
+- source: Ich bin nicht sicher was ich antworten soll
+- expected: I'm not really sure about the answer
+- got: I'm not sure what I said
+
+- source: Ich brachte rund  junge somalische Führungskräfte zusammen
+- expected: I brought together about  young Somali leaders
+- got: I brought about young social media together
+
+- source: Es gab keine Arbeit und keine Möglichkeiten
+- expected: There were no jobs no opportunities
+- got: There was no job and no possibilities
+
+- source: Sie suchten Leute wie ihn
+- expected: They sought people like him out
+- got: They were looking like people
+
+- source: Aber diese Geschichte nimmt einen anderen Lauf
+- expected: But his story takes a different route
+- got: But this story takes a different <UNK>
+
+- source: Aden erkannte die Gelegenheit und ergriff sie
+- expected: Aden saw an opportunity and seized it
+- got: So <UNK> realized the opportunity and they realized
+
+- source: Er eröffnete eine Motorradgeschäft
+- expected: He started a motorbike company
+- got: He was <UNK> a <UNK>
+
+- source: Wie unterscheidet sich diese Geschichte von der anderen
+- expected: How is this story different
+- got: How is that different from the other story
+
+- source: Was macht den Unterschied aus
+- expected: What makes his story different
+- got: What makes a difference
+
+- source: Man kann jungen Leuten beibringen Unternehmer zu sein
+- expected: And you can train young people to be entrepreneurs
+- got: You can teach young people teach entrepreneurs
+
+- source: Also sah Mohamed eine Gelegenheit
+- expected: So Mohamed saw an opportunity
+- got: So <UNK> saw an opportunity
+
+- source: Er gründete eine Landschaftsgärtnerei mit Blumenladen
+- expected: He started a landscaping and design floral company
+- got: He started a <UNK> with <UNK>
+
+- source: Es gibt keine öffentlichen Parks in Mogadischu
+- expected: There's no public park in Mogadishu
+- got: There are no public spaces in public spaces
+
+- source: Sie hatten unternehmerischen Lösungen für lokale Probleme
+- expected: They came up with entrepreneurial solutions to local problems
+- got: They had <UNK> solutions to local problems
+
+- source: Es geht um die Erschaffung sozialer Effekte
+- expected: It's about creating a social impact
+- got: It's all about going from the social science
+
+- source: Mohamed verkauft nicht einfach nur Blumen
+- expected: Mohamed is not simply selling flowers
+- got: <UNK> not just sell flowers
+
+- source: Ich glaube er verkauft Hoffnung
+- expected: I believe he is selling hope
+- got: I think he's sold hope
+
+- source: Vielen Dank
+- expected: Thank you
+- got: Thank you
+
+- source: Aber diese Muscheln sind schwer zu finden
+- expected: But you know these shells they're hard to find
+- got: But these <UNK> are hard to find
+
+- source: Sie sind von Sand umhüllt kaum zu sehen
+- expected: They're covered in sand They're difficult to see
+- got: They're completely <UNK> sand by sand
+
+- source: Wissen zu teilen ist die größte aller Berufungen
+- expected: Sharing knowledge is the greatest of all callings
+- got: You know the greatest way to all the <UNK>
+
+- source: Es gibt nichts dergleichen im Lande
+- expected: There's nothing like it in the land
+- got: There is nothing like in the <UNK> business
+
+- source: Danke vielmals
+- expected: Thank you very much
+- got: Thank you very much
+
+- source: Danke
+- expected: Thank you
+- got: Thank you
+
+- source: Ein chinesischer Gelehrter versteht ca  Schriftzeichen
+- expected: A Chinese scholar would understand  characters
+- got: An <UNK> <UNK> is about <UNK>
+
+- source: Sie brauchen nur  Schriftzeichen für ein einfaches Schriftverständnis
+- expected: You only need  to understand the basic literacy
+- got: They just need a simple <UNK> for an <UNK>
+
+- source: Sind Sie bereit
+- expected: You are ready
+- got: Are you ready
+
+- source: Daraus wird ein Mund
+- expected: You get a mouth
+- got: This is going to be a mouth
+
+- source: Dieser Mensch geht spazieren
+- expected: This is a person going for a walk
+- got: This is a <UNK> story
+
+- source: Mensch
+- expected: Person
+- got: Man
+
+- source: Das ist ein Baum
+- expected: This is a tree
+- got: This is a tree
+
+- source: Baum
+- expected: Tree
+- got: <UNK>
+
+- source: Das ist ein Berg
+- expected: This is a mountain
+- got: That's a mountain
+
+- source: Die Sonne
+- expected: The sun
+- got: The sun is
+
+Bleu Score = 17.146408907717394

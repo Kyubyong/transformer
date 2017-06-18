@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-# /usr/bin/python2
+#/usr/bin/python2
 '''
-By kyubyong park. kbpark.linguist@gmail.com.
+June 2017 by kyubyong park. 
+kbpark.linguist@gmail.com.
 https://www.github.com/kyubyong/transformer
 '''
 from __future__ import print_function
@@ -9,7 +10,7 @@ from hyperparams import Hyperparams as hp
 import tensorflow as tf
 import numpy as np
 import codecs
-import re, regex
+import regex
 
 def load_de_vocab():
     vocab = [line.split()[0] for line in codecs.open('preprocessed/de.vocab.tsv', 'r', 'utf-8').read().splitlines() if int(line.split()[1])>=hp.min_cnt]
@@ -30,9 +31,9 @@ def create_data(source_sents, target_sents):
     # Index
     x_list, y_list, Sources, Targets = [], [], [], []
     for source_sent, target_sent in zip(source_sents, target_sents):
-        x = [de2idx.get(word, 1) for word in (source_sent + u" </S>").split()] # 3: OOV, ␃: End of Text
+        x = [de2idx.get(word, 1) for word in (source_sent + u" </S>").split()] # 1: OOV, </S>: End of Text
         y = [en2idx.get(word, 1) for word in (target_sent + u" </S>").split()] 
-        if max(len(x), len(y)) <= hp.maxlen and 1 not in x and 1 not in x:
+        if max(len(x), len(y)) <=hp.maxlen:
             x_list.append(np.array(x))
             y_list.append(np.array(y))
             Sources.append(source_sent)
@@ -45,58 +46,24 @@ def create_data(source_sents, target_sents):
         X[i] = np.lib.pad(x, [0, hp.maxlen-len(x)], 'constant', constant_values=(0, 0))
         Y[i] = np.lib.pad(y, [0, hp.maxlen-len(y)], 'constant', constant_values=(0, 0))
     
-    print("X.shape =", X.shape) 
-    print("Y.shape =", Y.shape) 
-    
     return X, Y, Sources, Targets
 
-# def create_eval_data(source_sents, target_sents): 
-#     word2idx, idx2word = load_vocab()
-#     
-#     # Index
-#     x_list, y_list, Sources, Targets = [], [], [], []
-#     for source_sent, target_sent in zip(source_sents, target_sents):
-#         x = [word2idx.get(word, 3) for word in source_sent + u" </S>"] # 3: OOV, ␃: End of Text
-#         y = [word2idx.get(word, 3) for word in target_sent + u"␃"] 
-#         if max(len(x), len(y)) <= hp.maxlen:
-#             x_list.append(np.array(x))
-#             y_list.append(np.array(y))
-#             Sources.append(source_sent)
-#             Targets.append(target_sent)
-#     
-#     # Pad      
-#     X = np.zeros([len(x_list), hp.maxlen], np.int32)
-#     Y = np.zeros([len(y_list), hp.maxlen], np.int32)
-#     for i, (x, y) in enumerate(zip(x_list, y_list)):
-#         X[i] = np.lib.pad(x, [0, hp.maxlen-len(x)], 'constant', constant_values=(0, 0))
-#         Y[i] = np.lib.pad(y, [0, hp.maxlen-len(y)], 'constant', constant_values=(0, 0))
-#     
-#     print("X.shape =", X.shape) 
-#     print("Y.shape =", Y.shape) 
-#     
-#     return X, Y, Sources, Targets
-       
 def load_train_data():
-    de_sents = [regex.sub("[^\s\p{Latin}']", "", line) for line in codecs.open(hp.de_train, 'r', 'utf-8').read().split("\n") if line and line[0] != "<"]
-    en_sents = [regex.sub("[^\s\p{Latin}']", "", line) for line in codecs.open(hp.en_train, 'r', 'utf-8').read().split("\n") if line and line[0] != "<"]
+    de_sents = [regex.sub("[^\s\p{Latin}']", "", line) for line in codecs.open(hp.source_train, 'r', 'utf-8').read().split("\n") if line and line[0] != "<"]
+    en_sents = [regex.sub("[^\s\p{Latin}']", "", line) for line in codecs.open(hp.target_train, 'r', 'utf-8').read().split("\n") if line and line[0] != "<"]
     
     X, Y, Sources, Targets = create_data(de_sents, en_sents)
     return X, Y
     
 def load_test_data():
-    def _remove_tags(line):
-        line = re.sub("<[^>]+>", "", line) 
+    def _refine(line):
+        line = regex.sub("<[^>]+>", "", line)
+        line = regex.sub("[^\s\p{Latin}']", "", line) 
         return line.strip()
     
-#     de_sents = [_remove_tags(line) for line in codecs.open(hp.de_test, 'r', 'utf-8').read().split("\n") if line and line[:4] == "<seg"]
-#     en_sents = [_remove_tags(line) for line in codecs.open(hp.en_test, 'r', 'utf-8').read().split("\n") if line and line[:4] == "<seg"]
-    
-    if hp.sanity_check:
-        de_sents = [line for line in codecs.open(hp.de_train, 'r', 'utf-8').read().split("\n") if line and line[0] != "<"]
-        en_sents = [line for line in codecs.open(hp.en_train, 'r', 'utf-8').read().split("\n") if line and line[0] != "<"]
-        X, Y, Sources, Targets = create_data(de_sents, en_sents)
-        return X[:128], Sources[:128], Targets[:128]
- 
+    de_sents = [_refine(line) for line in codecs.open(hp.source_test, 'r', 'utf-8').read().split("\n") if line and line[:4] == "<seg"]
+    en_sents = [_refine(line) for line in codecs.open(hp.target_test, 'r', 'utf-8').read().split("\n") if line and line[:4] == "<seg"]
+        
     X, Y, Sources, Targets = create_data(de_sents, en_sents)
     return X, Sources, Targets # (1064, 150)
 
