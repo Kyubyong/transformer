@@ -15,7 +15,7 @@ class Hyperparams:
     
     # training
     batch_size = 32 # alias = N
-    lr = 0.00003 # learning rate. In paper, learning rate is adjusted to the global step.
+    lr = 0.0001 # learning rate. In paper, learning rate is adjusted to the global step.
     logdir = 'logdir' # log directory
     
     # model
