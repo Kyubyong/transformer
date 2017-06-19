@@ -26,6 +26,9 @@ I don't intend to replicate the paper exactly. Rather, I aim to implement the ma
 
 ## Training
 * STEP 1. Download [IWSLT 2016 German–English parallel corpus](https://wit3.fbk.eu/download.php?release=2016-01&type=texts&slang=de&tlang=en) and extract it to `corpora/` folder.
+```sh
+wget -qO- --show-progress https://wit3.fbk.eu/archive/2016-01//texts/de/en/de-en.tgz | tar xz; mv de-en corpora
+```
 * STEP 2. Adjust hyper parameters in `hyperparams.py` if necessary.
 * STEP 3. Run `prepro.py` to generate vocabulary files to the `preprocessed` folder.
 * STEP 4. Run `train.py` or download the [pretrained files](https://u42868014.dl.dropboxusercontent.com/u/42868014/transformer/logdir.zip).
@@ -86,6 +89,3 @@ got: Oh yeah you all are incredibly
 source: Dies ist nicht meine Meinung Das sind Fakten<br>
 expected: This is not my opinion These are the facts<br>
 got: This is not my opinion These are facts
-
-
-
