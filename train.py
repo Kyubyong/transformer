@@ -41,7 +41,7 @@ class Graph():
                                       scope="enc_embed")
                 
                 ## Positional Encoding
-                self.enc += embedding(tf.tile(tf.expand_dims(tf.range(tf.shape(self.x)[1]), 0), [tf.shape(self.x)[0], 1]),
+                self.enc += positional_encoding(self.x,
                                       vocab_size=hp.maxlen, 
                                       num_units=hp.hidden_units, 
                                       zero_pad=False, 
@@ -78,7 +78,7 @@ class Graph():
                                       scope="dec_embed")
                 
                 ## Positional Encoding
-                self.dec += embedding(tf.tile(tf.expand_dims(tf.range(tf.shape(self.decoder_inputs)[1]), 0), [tf.shape(self.decoder_inputs)[0], 1]),
+                self.dec += positional_encoding(self.decoder_inputs,
                                       vocab_size=hp.maxlen, 
                                       num_units=hp.hidden_units, 
                                       zero_pad=False, 
