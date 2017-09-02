@@ -116,6 +116,54 @@ def embedding(inputs,
             
     return outputs
     
+
+def positional_encoding(inputs,
+            vocab_size,
+            num_units,
+            zero_pad = True,
+            scale = True,
+            scope = "positional_embedding",
+            reuse = None):
+    '''
+    Positional_Encoding for a given tensor.
+
+    Args:
+      inputs: [Tensor], A tensor contains the ids to be search from the lookup table, shape = [batch_size, 1 + len(inpt)]
+      vocab_size: [Int], Vocabulary size
+      num_units: [Int], Hidden size of embedding
+      zero_pad: [Boolean], If True, all the values of the first row(id = 0) should be constant zero
+      scale: [Boolean], If True, the output will be multiplied by sqrt num_units(check details from paper)
+      scope: [String], Optional scope for 'variable_scope'
+      reuse: [Boolean], If to reuse the weights of a previous layer by the same name
+
+      Returns:
+        A 'Tensor' with one more rank than inputs's, with the dimensionality should be 'num_units'
+    '''
+
+    with tf.variable_scope(scope, reuse = reuse):
+
+        input_one = tf.tile(tf.expand_dims(tf.range(tf.shape(inputs)[1]), 0), [tf.shape(inputs)[0], 1])
+        position_block = tf.tile(tf.expand_dims(tf.range(vocab_size), 1), [1, num_units // 2])
+        unit_block = tf.tile(tf.expand_dims(tf.range(num_units // 2), 0), [vocab_size, 1])
+        rad_block = tf.pow(tf.div(position_block, tf.multiply(10000, 1)), tf.div(unit_block, num_units // 2))
+        
+        sin_block = tf.sin(tf.cast(rad_block, tf.float32))
+        cos_block = tf.cos(tf.cast(rad_block, tf.float32))
+        lookup_table = tf.concat([sin_block, cos_block], axis = 1)
+
+        if zero_pad:
+
+            lookup_table = tf.concat((tf.zeros(shape = [1, num_units]),
+                                    lookup_table[1:, :]), 0)
+        outputs = tf.nn.embedding_lookup(lookup_table, input_one)
+    
+        if scale:
+            outputs = outputs * math.sqrt(num_units)
+
+        return outputs
+
+
+
 def multihead_attention(queries, 
                         keys, 
                         num_units=None, 
