@@ -41,12 +41,21 @@ class Graph():
                                       scope="enc_embed")
                 
                 ## Positional Encoding
-                self.enc += positional_encoding(self.x,
+                if hp.sinusoid:
+                    self.enc += positional_encoding(self.x,
                                       vocab_size=hp.maxlen, 
                                       num_units=hp.hidden_units, 
                                       zero_pad=False, 
                                       scale=False,
-                                      scope="enc_pe") 
+                                      scope="enc_pe")
+                else:
+                    self.enc += embedding(tf.tile(tf.expand_dims(tf.range(tf.shape(self.x)[1]), 0), [tf.shape(self.x)[0], 1]),
+                                      vocab_size=hp.maxlen, 
+                                      num_units=hp.hidden_units, 
+                                      zero_pad=False, 
+                                      scale=False,
+                                      scope="enc_pe")
+                    
                  
                 ## Dropout
                 self.enc = tf.layers.dropout(self.enc, 
@@ -78,7 +87,15 @@ class Graph():
                                       scope="dec_embed")
                 
                 ## Positional Encoding
-                self.dec += positional_encoding(self.decoder_inputs,
+                if hp.sinusoid:
+                    self.dec += positional_encoding(self.decoder_inputs,
+                                      vocab_size=hp.maxlen, 
+                                      num_units=hp.hidden_units, 
+                                      zero_pad=False, 
+                                      scale=False,
+                                      scope="dec_pe")
+                else:
+                    self.dec += embedding(tf.tile(tf.expand_dims(tf.range(tf.shape(self.decoder_inputs)[1]), 0), [tf.shape(self.decoder_inputs)[0], 1]),
                                       vocab_size=hp.maxlen, 
                                       num_units=hp.hidden_units, 
                                       zero_pad=False, 
