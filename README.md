@@ -31,7 +31,7 @@ wget -qO- --show-progress https://wit3.fbk.eu/archive/2016-01//texts/de/en/de-en
 ```
 * STEP 2. Adjust hyper parameters in `hyperparams.py` if necessary.
 * STEP 3. Run `prepro.py` to generate vocabulary files to the `preprocessed` folder.
-* STEP 4. Run `train.py` or download the [pretrained files](https://u42868014.dl.dropboxusercontent.com/u/42868014/transformer/logdir.zip).
+* STEP 4. Run `train.py` or download the [pretrained files](https://www.dropbox.com/s/fo5wqgnbmvalwwq/logdir.zip?dl=0).
 
 ## Training Loss and Accuracy
 * Training Loss
