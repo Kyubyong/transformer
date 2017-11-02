@@ -54,7 +54,7 @@ def embedding(inputs,
       num_units: An int. Number of embedding hidden units.
       zero_pad: A boolean. If True, all the values of the fist row (id 0)
         should be constant zeros.
-      scale: A boolean. If True. the outputs is multiplied by sqrt num_units.
+      scale: A boolean. If True. the outputs is divided by sqrt num_units.
       scope: Optional scope for `variable_scope`.
       reuse: Boolean, whether to reuse the weights of a previous layer
         by the same name.
@@ -112,7 +112,7 @@ def embedding(inputs,
         outputs = tf.nn.embedding_lookup(lookup_table, inputs)
         
         if scale:
-            outputs = outputs * (num_units ** 0.5) 
+            outputs = outputs / (num_units ** 0.5) 
             
     return outputs
     
@@ -129,7 +129,7 @@ def positional_encoding(inputs,
       inputs: A 2d Tensor with shape of (N, T).
       num_units: Output dimensionality
       zero_pad: Boolean. If True, all the values of the first row (id = 0) should be constant zero
-      scale: Boolean. If True, the output will be multiplied by sqrt num_units(check details from paper)
+      scale: Boolean. If True, the output will be divided by sqrt num_units(check details from paper)
       scope: Optional scope for `variable_scope`.
       reuse: Boolean, whether to reuse the weights of a previous layer
         by the same name.
@@ -160,7 +160,7 @@ def positional_encoding(inputs,
         outputs = tf.nn.embedding_lookup(lookup_table, position_ind)
 
         if scale:
-            outputs = outputs * num_units**0.5
+            outputs = outputs / (num_units**0.5)
 
         return outputs
 
