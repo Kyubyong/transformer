@@ -158,7 +158,7 @@ def positional_encoding(inputs,
         # Convert to a tensor
         lookup_table = tf.convert_to_tensor(position_enc)
         lookup_table= tf.cast(lookup_table, tf.float32)
-        #print('REACHEd', lookup_table)
+        
         if zero_pad:
             lookup_table = tf.concat((tf.zeros(shape=[1, num_units]),
                                       lookup_table[1:, :]), 0)
@@ -170,7 +170,7 @@ def positional_encoding(inputs,
         if scale:
             outputs = outputs * num_units**0.5
         
-        print('REACHEd', outputs)
+      
         return outputs
 
 
