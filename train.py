@@ -93,7 +93,6 @@ class Graph():
                 ## Positional Encoding
                 if hp.sinusoid:
                     self.dec += positional_encoding(self.decoder_inputs,
-                                      vocab_size=hp.maxlen, 
                                       num_units=hp.hidden_units, 
                                       zero_pad=False, 
                                       scale=False,
