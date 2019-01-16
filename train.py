@@ -39,7 +39,9 @@ class Graph():
                                       num_units=hp.hidden_units, 
                                       scale=True,
                                       scope="enc_embed")
-                
+
+                key_masks = tf.expand_dims(tf.sign(tf.reduce_sum(tf.abs(self.enc), axis=-1)), -1)
+
                 ## Positional Encoding
                 if hp.sinusoid:
                     self.enc += positional_encoding(self.x,
@@ -54,7 +56,8 @@ class Graph():
                                       zero_pad=False, 
                                       scale=False,
                                       scope="enc_pe")
-                    
+
+                self.enc *= key_masks
                  
                 ## Dropout
                 self.enc = tf.layers.dropout(self.enc, 
@@ -84,7 +87,9 @@ class Graph():
                                       num_units=hp.hidden_units,
                                       scale=True, 
                                       scope="dec_embed")
-                
+
+                key_masks = tf.expand_dims(tf.sign(tf.reduce_sum(tf.abs(self.dec), axis=-1)), -1)
+
                 ## Positional Encoding
                 if hp.sinusoid:
                     self.dec += positional_encoding(self.decoder_inputs,
@@ -100,6 +105,7 @@ class Graph():
                                       zero_pad=False, 
                                       scale=False,
                                       scope="dec_pe")
+                self.dec *= key_masks
                 
                 ## Dropout
                 self.dec = tf.layers.dropout(self.dec, 
