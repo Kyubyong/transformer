@@ -1,186 +1,103 @@
 # -*- coding: utf-8 -*-
-#/usr/bin/python2
+#/usr/bin/python3
 '''
-June 2017 by kyubyong park. 
+Feb. 2019 by kyubyong park.
 kbpark.linguist@gmail.com.
 https://www.github.com/kyubyong/transformer
 '''
-from __future__ import print_function
 import tensorflow as tf
 
-from hyperparams import Hyperparams as hp
-from data_load import get_batch_data, load_de_vocab, load_en_vocab
-from modules import *
-import os, codecs
+from model import Transformer
 from tqdm import tqdm
+from data_load import get_batch
+from utils import save_hparams, save_variable_specs, get_hypotheses, calc_bleu
+import os
+from hparams import Hparams
+import math
+import logging
 
-class Graph():
-    def __init__(self, is_training=True):
-        self.graph = tf.Graph()
-        with self.graph.as_default():
-            if is_training:
-                self.x, self.y, self.num_batch = get_batch_data() # (N, T)
-            else: # inference
-                self.x = tf.placeholder(tf.int32, shape=(None, hp.maxlen))
-                self.y = tf.placeholder(tf.int32, shape=(None, hp.maxlen))
+logging.basicConfig(level=logging.INFO)
 
-            # define decoder inputs
-            self.decoder_inputs = tf.concat((tf.ones_like(self.y[:, :1])*2, self.y[:, :-1]), -1) # 2:<S>
 
-            # Load vocabulary    
-            de2idx, idx2de = load_de_vocab()
-            en2idx, idx2en = load_en_vocab()
-            
-            # Encoder
-            with tf.variable_scope("encoder"):
-                ## Embedding
-                self.enc = embedding(self.x, 
-                                      vocab_size=len(de2idx), 
-                                      num_units=hp.hidden_units, 
-                                      scale=True,
-                                      scope="enc_embed")
+logging.info("# hparams")
+hparams = Hparams()
+parser = hparams.parser
+hp = parser.parse_args()
+save_hparams(hp, hp.logdir)
 
-                key_masks = tf.expand_dims(tf.sign(tf.reduce_sum(tf.abs(self.enc), axis=-1)), -1)
+logging.info("# Prepare train/eval batches")
+train_batches, num_train_batches, num_train_samples = get_batch(hp.train1, hp.train2,
+                                             hp.maxlen1, hp.maxlen2,
+                                             hp.vocab, hp.batch_size,
+                                             shuffle=True)
+eval_batches, num_eval_batches, num_eval_samples = get_batch(hp.eval1, hp.eval2,
+                                             100000, 100000,
+                                             hp.vocab, hp.batch_size,
+                                             shuffle=False)
 
-                ## Positional Encoding
-                if hp.sinusoid:
-                    self.enc += positional_encoding(self.x,
-                                      num_units=hp.hidden_units, 
-                                      zero_pad=False, 
-                                      scale=False,
-                                      scope="enc_pe")
-                else:
-                    self.enc += embedding(tf.tile(tf.expand_dims(tf.range(tf.shape(self.x)[1]), 0), [tf.shape(self.x)[0], 1]),
-                                      vocab_size=hp.maxlen, 
-                                      num_units=hp.hidden_units, 
-                                      zero_pad=False, 
-                                      scale=False,
-                                      scope="enc_pe")
+# create a iterator of the correct shape and type
+iter = tf.data.Iterator.from_structure(train_batches.output_types, train_batches.output_shapes)
+xs, ys = iter.get_next()
 
-                self.enc *= key_masks
-                 
-                ## Dropout
-                self.enc = tf.layers.dropout(self.enc, 
-                                            rate=hp.dropout_rate, 
-                                            training=tf.convert_to_tensor(is_training))
-                
-                ## Blocks
-                for i in range(hp.num_blocks):
-                    with tf.variable_scope("num_blocks_{}".format(i)):
-                        ### Multihead Attention
-                        self.enc = multihead_attention(queries=self.enc, 
-                                                        keys=self.enc, 
-                                                        num_units=hp.hidden_units, 
-                                                        num_heads=hp.num_heads, 
-                                                        dropout_rate=hp.dropout_rate,
-                                                        is_training=is_training,
-                                                        causality=False)
-                        
-                        ### Feed Forward
-                        self.enc = feedforward(self.enc, num_units=[4*hp.hidden_units, hp.hidden_units])
-            
-            # Decoder
-            with tf.variable_scope("decoder"):
-                ## Embedding
-                self.dec = embedding(self.decoder_inputs, 
-                                      vocab_size=len(en2idx), 
-                                      num_units=hp.hidden_units,
-                                      scale=True, 
-                                      scope="dec_embed")
+train_init_op = iter.make_initializer(train_batches)
+eval_init_op = iter.make_initializer(eval_batches)
 
-                key_masks = tf.expand_dims(tf.sign(tf.reduce_sum(tf.abs(self.dec), axis=-1)), -1)
+logging.info("# Load model")
+m = Transformer(hp)
+loss, train_op, global_step, train_summaries = m.train(xs, ys)
+y_hat, eval_summaries = m.eval(xs, ys)
+# y_hat = m.infer(xs, ys)
 
-                ## Positional Encoding
-                if hp.sinusoid:
-                    self.dec += positional_encoding(self.decoder_inputs,
-                                      vocab_size=hp.maxlen, 
-                                      num_units=hp.hidden_units, 
-                                      zero_pad=False, 
-                                      scale=False,
-                                      scope="dec_pe")
-                else:
-                    self.dec += embedding(tf.tile(tf.expand_dims(tf.range(tf.shape(self.decoder_inputs)[1]), 0), [tf.shape(self.decoder_inputs)[0], 1]),
-                                      vocab_size=hp.maxlen, 
-                                      num_units=hp.hidden_units, 
-                                      zero_pad=False, 
-                                      scale=False,
-                                      scope="dec_pe")
-                self.dec *= key_masks
-                
-                ## Dropout
-                self.dec = tf.layers.dropout(self.dec, 
-                                            rate=hp.dropout_rate, 
-                                            training=tf.convert_to_tensor(is_training))
-                
-                ## Blocks
-                for i in range(hp.num_blocks):
-                    with tf.variable_scope("num_blocks_{}".format(i)):
-                        ## Multihead Attention ( self-attention)
-                        self.dec = multihead_attention(queries=self.dec, 
-                                                        keys=self.dec, 
-                                                        num_units=hp.hidden_units, 
-                                                        num_heads=hp.num_heads, 
-                                                        dropout_rate=hp.dropout_rate,
-                                                        is_training=is_training,
-                                                        causality=True, 
-                                                        scope="self_attention")
-                        
-                        ## Multihead Attention ( vanilla attention)
-                        self.dec = multihead_attention(queries=self.dec, 
-                                                        keys=self.enc, 
-                                                        num_units=hp.hidden_units, 
-                                                        num_heads=hp.num_heads,
-                                                        dropout_rate=hp.dropout_rate,
-                                                        is_training=is_training, 
-                                                        causality=False,
-                                                        scope="vanilla_attention")
-                        
-                        ## Feed Forward
-                        self.dec = feedforward(self.dec, num_units=[4*hp.hidden_units, hp.hidden_units])
-                
-            # Final linear projection
-            self.logits = tf.layers.dense(self.dec, len(en2idx))
-            self.preds = tf.to_int32(tf.arg_max(self.logits, dimension=-1))
-            self.istarget = tf.to_float(tf.not_equal(self.y, 0))
-            self.acc = tf.reduce_sum(tf.to_float(tf.equal(self.preds, self.y))*self.istarget)/ (tf.reduce_sum(self.istarget))
-            tf.summary.scalar('acc', self.acc)
-                
-            if is_training:  
-                # Loss
-                self.y_smoothed = label_smoothing(tf.one_hot(self.y, depth=len(en2idx)))
-                self.loss = tf.nn.softmax_cross_entropy_with_logits(logits=self.logits, labels=self.y_smoothed)
-                self.mean_loss = tf.reduce_sum(self.loss*self.istarget) / (tf.reduce_sum(self.istarget))
-               
-                # Training Scheme
-                self.global_step = tf.Variable(0, name='global_step', trainable=False)
-                self.optimizer = tf.train.AdamOptimizer(learning_rate=hp.lr, beta1=0.9, beta2=0.98, epsilon=1e-8)
-                self.train_op = self.optimizer.minimize(self.mean_loss, global_step=self.global_step)
-                   
-                # Summary 
-                tf.summary.scalar('mean_loss', self.mean_loss)
-                self.merged = tf.summary.merge_all()
+logging.info("# Session")
+saver = tf.train.Saver(max_to_keep=hp.num_epochs)
+with tf.Session() as sess:
+    ckpt = tf.train.latest_checkpoint(hp.logdir)
+    if ckpt is None:
+        logging.info("Initializing from scratch")
+        sess.run(tf.global_variables_initializer())
+        save_variable_specs(os.path.join(hp.logdir, "specs"))
+    else:
+        saver.restore(sess, ckpt)
 
-if __name__ == '__main__':                
-    # Load vocabulary    
-    de2idx, idx2de = load_de_vocab()
-    en2idx, idx2en = load_en_vocab()
-    
-    # Construct graph
-    g = Graph("train"); print("Graph loaded")
-    
-    # Start session
-    sv = tf.train.Supervisor(graph=g.graph, 
-                             logdir=hp.logdir,
-                             save_model_secs=0)
-    with sv.managed_session() as sess:
-        for epoch in range(1, hp.num_epochs+1): 
-            if sv.should_stop(): break
-            for step in tqdm(range(g.num_batch), total=g.num_batch, ncols=70, leave=False, unit='b'):
-                sess.run(g.train_op)
-                
-            gs = sess.run(g.global_step)   
-            sv.saver.save(sess, hp.logdir + '/model_epoch_%02d_gs_%d' % (epoch, gs))
-    
-    print("Done")    
-    
+    summary_writer = tf.summary.FileWriter(hp.logdir, sess.graph)
 
+    sess.run(train_init_op)
+    total_steps = hp.num_epochs * num_train_batches
+    _gs = sess.run(global_step)
+    for i in tqdm(range(_gs, total_steps+1)):
+        _, _gs, _summary = sess.run([train_op, global_step, train_summaries])
+        epoch = math.ceil(_gs / num_train_batches)
+        summary_writer.add_summary(_summary, _gs)
+
+        if _gs and _gs % num_train_batches == 0:
+            logging.info("epoch {} is done".format(epoch))
+            _loss = sess.run(loss) # train loss
+
+            logging.info("# test evaluation")
+            _, _eval_summaries = sess.run([eval_init_op, eval_summaries])
+            summary_writer.add_summary(_eval_summaries, _gs)
+
+            logging.info("# get hypotheses")
+            hypotheses = get_hypotheses(num_eval_batches, num_eval_samples, sess, y_hat, m.idx2token)
+
+            logging.info("# write results")
+            model_output = "iwslt2016_E%02dL%.2f" % (epoch, _loss)
+            if not os.path.exists(hp.evaldir): os.makedirs(hp.evaldir)
+            translation = os.path.join(hp.evaldir, model_output)
+            with open(translation, 'w') as fout:
+                fout.write("\n".join(hypotheses))
+
+            logging.info("# calc bleu score and append it to translation")
+            calc_bleu(hp.eval3, translation)
+
+            logging.info("# save models")
+            ckpt_name = os.path.join(hp.logdir, model_output)
+            saver.save(sess, ckpt_name, global_step=_gs)
+            logging.info("after training of {} epochs, {} has been saved.".format(epoch, ckpt_name))
+
+            logging.info("# fall back to train mode")
+            sess.run(train_init_op)
+    summary_writer.close()
+
+
+logging.info("Done")

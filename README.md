@@ -1,91 +1,82 @@
-# A TensorFlow Implementation of the Transformer: Attention Is All You Need
+# **[UPDATED]** A TensorFlow Implementation of [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
+
+When I opened this repository in 2017, there was no official code yet.
+I tried to implement the paper as I understood, but to no surprise
+it had several bugs. I realized them mostly thanks to people who issued here, so
+I'm very grateful to all of them. Though there is the [official implementation](https://github.com/tensorflow/tensor2tensor) as well as
+several other unofficial github repos, I decided to update my own one.
+This update focuses on:
+* readable / understandable code writing
+* modularization (but not too much)
+* revising known bugs. (masking, positional encoding, ...)
+* updating to TF1.12. (tf.data, ...)
+* adding some missing components (bpe, shared weight matrix, ...)
+* including useful comments in the code.
+
+I still stick to IWSLT 2016 de-en. I guess if you'd like to test on a big data such
+as WMT, you would rely on the official implementation.
+After all, it's pleasant to check quickly if your model works.
+The initial code for TF1.2 is moved to the [tf1.2_lecacy](tf1.2_legacy) folder for the record.
 
 ## Requirements
-  * NumPy >= 1.11.1
-  * TensorFlow >= 1.2 (Probably 1.1 should work, too, though I didn't test it)
-  * regex
-  * nltk
-
-## Why This Project?
-I tried to implement the idea in [Attention Is All You Need](https://arxiv.org/abs/1706.03762). They authors claimed that their model, the Transformer, outperformed the state-of-the-art one in machine translation with only attention, no CNNs, no RNNs. How cool it is! At the end of the paper, they promise they will make their code available soon, but apparently it is not so yet. I have two goals with this project. One is I wanted to have a full understanding of the paper. Often it's hard for me to have a good grasp before writing some code for it. Another is to share my code with people who are interested in this model before the official code is unveiled.
-
-## Differences with the original paper
-I don't intend to replicate the paper exactly. Rather, I aim to implement the main ideas in the paper and verify them in a SIMPLE and QUICK way. In this respect, some parts in my code are different than those in the paper. Among them are
-* I used the IWSLT 2016 de-en dataset, not the wmt dataset because the former is much smaller, and requires no special preprocessing.
-* I constructed vocabulary with words, not subwords for simplicity. Of course, you can try bpe or word-piece if you want.
-* I parameterized positional encoding. The paper used some sinusoidal formula, but Noam, one of the authors, says they both work. See the [discussion in reddit](https://www.reddit.com/r/MachineLearning/comments/6gwqiw/r_170603762_attention_is_all_you_need_sota_nmt/)
-* The paper adjusted the learning rate to global steps. I fixed the learning to a small number, 0.0001 simply because training was reasonably fast enough with the small dataset (Only a couple of hours on a single GTX 1060!!).
-
-## File description
-  * `hyperparams.py` includes all hyper parameters that are needed.
-  * `prepro.py` creates vocabulary files for the source and the target.
-  * `data_load.py` contains functions regarding loading and batching data.
-  * `modules.py` has all building blocks for encoder/decoder networks.
-  * `train.py` has the model.
-  * `eval.py` is for evaluation.
+* python==3.x (Let's move on to python 3 if you still use python 2)
+* tensorflow==1.12.0
+* numpy>=1.15.4
+* sentencepiece==0.1.8
+* tqdm>=4.28.1
 
 ## Training
-* STEP 1. Download [IWSLT 2016 German–English parallel corpus](https://wit3.fbk.eu/download.php?release=2016-01&type=texts&slang=de&tlang=en) and extract it to `corpora/` folder.
-```sh
-wget -qO- --show-progress https://wit3.fbk.eu/archive/2016-01//texts/de/en/de-en.tgz | tar xz; mv de-en corpora
+* STEP 1. Run `bash download.sh` to download [IWSLT 2016 German–English parallel corpus](https://wit3.fbk.eu/download.php?release=2016-01&type=texts&slang=de&tlang=en).
+ It should be extracted to `iwslt2016/de-en` folder automatically.
+* STEP 2. Run the command below to create preprocessed train/eval/test data.
 ```
-* STEP 2. Adjust hyper parameters in `hyperparams.py` if necessary.
-* STEP 3. Run `prepro.py` to generate vocabulary files to the `preprocessed` folder.
-* STEP 4. Run `train.py` or download the [pretrained files](https://www.dropbox.com/s/fo5wqgnbmvalwwq/logdir.zip?dl=0).
+python prepro.py
+```
+If you want to change the vocabulary size (default:32000), do this.
+```
+python prepro.py --vocab_size 8000
+```
+It should create two folders `iwslt2016/prepro` and `iwslt2016/segmented`.
 
-## Training Loss and Accuracy
-* Training Loss
-<img src="fig/mean_loss.png">
+* STEP 3. Run the following command.
+```
+python train.py
+```
+Don't forget to check TensorBoard. (scalar / image / text)
+Check `hparams.py` to see which parameters are possible. For example,
+```
+python train.py --logdir myLog --batch_size 256 --dropout_rate 0.5
+```
 
-* Training Accuracy
-<img src="fig/accuracy.png">
+* STEP 3. Or download the pretrained models.
+```
+wget -qO- --show-progress https://dl.dropbox.com/s/4o7zwef7kzma4q4/log.tar.gz | tar xz
+```
 
-## Evaluation
-  * Run `eval.py`.
+## Training Loss Curve
+<img src="fig/loss.png">
+
+## Learning rate
+<img src="fig/lr.png">
+
+## Bleu score on devset
+<img src="fig/bleu.png">
+
+
+## Inference (=test)
+* Run
+```
+python test.py --ckpt log/1/iwslt2016_E19L2.62-29146 (OR yourCkptFile OR yourCkptFileDirectory)
+```
 
 ## Results
-I got a BLEU score of 17.14. (Recollect I trained with a small dataset, limited vocabulary) Some of the evaluation results are as follows. Details are available in the `results` folder.
+* Typically, machine translation is evaluated with Bleu score.
+* All evaluation results are available in [eval/1](eval/1) and [test/1](test/1).
 
-source: Sie war eine jährige Frau namens Alex<br>
-expected: She was a yearold woman named Alex<br>
-got: She was a woman named yearold name
+|tst2013 (dev) | tst2014 (test) |
+|--|--|
+|26.93|23.16|
 
-source: Und als ich das hörte war ich erleichtert<br>
-expected: Now when I heard this I was so relieved<br>
-got: And when I heard that I was an <UNK>
-
-source: Meine Kommilitonin bekam nämlich einen Brandstifter als ersten Patienten<br>
-expected: My classmate got an arsonist for her first client<br>
-got: Because my first <UNK> came from an in patients
-
-source: Das kriege ich hin dachte ich mir<br>
-expected: This I thought I could handle<br>
-got: I'll go ahead and I thought
-
-source: Aber ich habe es nicht hingekriegt<br>
-expected: But I didn't handle it<br>
-got: But I didn't <UNK> it
-
-source: Ich hielt dagegen<br>
-expected: I pushed back<br>
-got: I thought about it
-
-source: Das ist es was Psychologen einen AhaMoment nennen<br>
-expected: That's what psychologists call an Aha moment<br>
-got: That's what a <UNK> like a <UNK>
-
-source: Meldet euch wenn ihr in euren ern seid<br>
-expected: Raise your hand if you're in your s<br>
-got: Get yourself in your s
-
-source: Ich möchte ein paar von euch sehen<br>
-expected: I really want to see some twentysomethings here<br>
-got: I want to see some of you
-
-source: Oh yeah Ihr seid alle unglaublich<br>
-expected: Oh yay Y'all's awesome<br>
-got: Oh yeah you all are incredibly
-
-source: Dies ist nicht meine Meinung Das sind Fakten<br>
-expected: This is not my opinion These are the facts<br>
-got: This is not my opinion These are facts
+## Notes
+* Beam decoding will be added soon.
+* I'm going to update the code when TF2.0 comes if possible.
