@@ -26,7 +26,10 @@ The initial code for TF1.2 is moved to the [tf1.2_lecacy](tf1.2_legacy) folder f
 * tqdm>=4.28.1
 
 ## Training
-* STEP 1. Run `bash download.sh` to download [IWSLT 2016 German–English parallel corpus](https://wit3.fbk.eu/download.php?release=2016-01&type=texts&slang=de&tlang=en).
+* STEP 1. Run the command below to download [IWSLT 2016 German–English parallel corpus](https://wit3.fbk.eu/download.php?release=2016-01&type=texts&slang=de&tlang=en).
+```
+bash download.sh
+```
  It should be extracted to `iwslt2016/de-en` folder automatically.
 * STEP 2. Run the command below to create preprocessed train/eval/test data.
 ```
@@ -42,7 +45,6 @@ It should create two folders `iwslt2016/prepro` and `iwslt2016/segmented`.
 ```
 python train.py
 ```
-Don't forget to check TensorBoard. (scalar / image / text)
 Check `hparams.py` to see which parameters are possible. For example,
 ```
 python train.py --logdir myLog --batch_size 256 --dropout_rate 0.5
@@ -79,4 +81,4 @@ python test.py --ckpt log/1/iwslt2016_E19L2.62-29146 (OR yourCkptFile OR yourCkp
 
 ## Notes
 * Beam decoding will be added soon.
-* I'm going to update the code when TF2.0 comes if possible.
+* I'm going to update the code when TF2.0 comes out if possible.
