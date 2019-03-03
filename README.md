@@ -52,8 +52,9 @@ python train.py --logdir myLog --batch_size 256 --dropout_rate 0.5
 
 * STEP 3. Or download the pretrained models.
 ```
-wget -qO- --show-progress https://dl.dropbox.com/s/4o7zwef7kzma4q4/log.tar.gz | tar xz
+wget -qO- --show-progress https://dl.dropbox.com/s/efv2gmq5hu3np43/log.tar.gz | tar xz
 ```
+
 
 ## Training Loss Curve
 <img src="fig/loss.png">
@@ -77,7 +78,7 @@ python test.py --ckpt log/1/iwslt2016_E19L2.62-29146 (OR yourCkptFile OR yourCkp
 
 |tst2013 (dev) | tst2014 (test) |
 |--|--|
-|26.93|23.16|
+|26.69|22.46|
 
 ## Notes
 * Beam decoding will be added soon.
