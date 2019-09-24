@@ -43,6 +43,9 @@ class Transformer:
         with tf.variable_scope("encoder", reuse=tf.AUTO_REUSE):
             x, seqlens, sents1 = xs
 
+            # src_masks
+            src_masks = tf.math.equal(x, 0) # (N, T1)
+
             # embedding
             enc = tf.nn.embedding_lookup(self.embeddings, x) # (N, T1, d_model)
             enc *= self.hp.d_model**0.5 # scale
@@ -57,6 +60,7 @@ class Transformer:
                     enc = multihead_attention(queries=enc,
                                               keys=enc,
                                               values=enc,
+                                              key_masks=src_masks,
                                               num_heads=self.hp.num_heads,
                                               dropout_rate=self.hp.dropout_rate,
                                               training=training,
@@ -64,11 +68,12 @@ class Transformer:
                     # feed forward
                     enc = ff(enc, num_units=[self.hp.d_ff, self.hp.d_model])
         memory = enc
-        return memory, sents1
+        return memory, sents1, src_masks
 
-    def decode(self, ys, memory, training=True):
+    def decode(self, ys, memory, src_masks, training=True):
         '''
         memory: encoder outputs. (N, T1, d_model)
+        src_masks: (N, T1)
 
         Returns
         logits: (N, T2, V). float32.
@@ -78,6 +83,9 @@ class Transformer:
         '''
         with tf.variable_scope("decoder", reuse=tf.AUTO_REUSE):
             decoder_inputs, y, seqlens, sents2 = ys
+
+            # tgt_masks
+            tgt_masks = tf.math.equal(decoder_inputs, 0)  # (N, T2)
 
             # embedding
             dec = tf.nn.embedding_lookup(self.embeddings, decoder_inputs)  # (N, T2, d_model)
@@ -93,6 +101,7 @@ class Transformer:
                     dec = multihead_attention(queries=dec,
                                               keys=dec,
                                               values=dec,
+                                              key_masks=tgt_masks,
                                               num_heads=self.hp.num_heads,
                                               dropout_rate=self.hp.dropout_rate,
                                               training=training,
@@ -103,6 +112,7 @@ class Transformer:
                     dec = multihead_attention(queries=dec,
                                               keys=memory,
                                               values=memory,
+                                              key_masks=src_masks,
                                               num_heads=self.hp.num_heads,
                                               dropout_rate=self.hp.dropout_rate,
                                               training=training,
@@ -127,8 +137,8 @@ class Transformer:
         summaries: training summary node
         '''
         # forward
-        memory, sents1 = self.encode(xs)
-        logits, preds, y, sents2 = self.decode(ys, memory)
+        memory, sents1, src_masks = self.encode(xs)
+        logits, preds, y, sents2 = self.decode(ys, memory, src_masks)
 
         # train scheme
         y_ = label_smoothing(tf.one_hot(y, depth=self.hp.vocab_size))
@@ -160,11 +170,11 @@ class Transformer:
         decoder_inputs = tf.ones((tf.shape(xs[0])[0], 1), tf.int32) * self.token2idx["<s>"]
         ys = (decoder_inputs, y, y_seqlen, sents2)
 
-        memory, sents1 = self.encode(xs, False)
+        memory, sents1, src_masks = self.encode(xs, False)
 
         logging.info("Inference graph is being built. Please be patient.")
         for _ in tqdm(range(self.hp.maxlen2)):
-            logits, y_hat, y, sents2 = self.decode(ys, memory, False)
+            logits, y_hat, y, sents2 = self.decode(ys, memory, src_masks, False)
             if tf.reduce_sum(y_hat, 1) == self.token2idx["<pad>"]: break
 
             _decoder_inputs = tf.concat((decoder_inputs, y_hat), 1)
