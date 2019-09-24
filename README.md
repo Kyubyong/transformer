@@ -52,7 +52,7 @@ python train.py --logdir myLog --batch_size 256 --dropout_rate 0.5
 
 * STEP 3. Or download the pretrained models.
 ```
-wget -qO- --show-progress https://dl.dropbox.com/s/efv2gmq5hu3np43/log.tar.gz | tar xz
+wget https://dl.dropbox.com/s/4lom1czy5xfzr4q/log.zip; unzip log.zip; rm log.zip
 ```
 
 
@@ -69,7 +69,7 @@ wget -qO- --show-progress https://dl.dropbox.com/s/efv2gmq5hu3np43/log.tar.gz | 
 ## Inference (=test)
 * Run
 ```
-python test.py --ckpt log/1/iwslt2016_E17L2.78-26078 (OR yourCkptFile OR yourCkptFileDirectory)
+python test.py --ckpt log/1/iwslt2016_E19L2.64-29146 (OR yourCkptFile OR yourCkptFileDirectory)
 ```
 
 ## Results
@@ -78,7 +78,7 @@ python test.py --ckpt log/1/iwslt2016_E17L2.78-26078 (OR yourCkptFile OR yourCkp
 
 |tst2013 (dev) | tst2014 (test) |
 |--|--|
-|26.69|22.46|
+|28.06|23.88|
 
 ## Notes
 * Beam decoding will be added soon.
