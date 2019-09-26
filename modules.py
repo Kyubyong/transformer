@@ -278,7 +278,7 @@ def positional_encoding(inputs,
 
         # First part of the PE function: sin and cos argument
         position_enc = np.array([
-            [pos / np.power(10000, (i-i%2)/E) for i in range(E)]
+            [pos / np.power(10000, 1.0*(i-i%2)/E) for i in range(E)]
             for pos in range(maxlen)])
 
         # Second part, apply the cosine to even columns and sin to odds.
