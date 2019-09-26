@@ -21,7 +21,7 @@ def load_vocab(vocab_fpath):
     Returns
     two dictionaries.
     '''
-    vocab = [line.split()[0] for line in open(vocab_fpath, 'r').read().splitlines()]
+    vocab = [line.split()[0] for line in open(vocab_fpath, 'r',encoding='UTF-8').read().splitlines()]
     token2idx = {token: idx for idx, token in enumerate(vocab)}
     idx2token = {idx: token for idx, token in enumerate(vocab)}
     return token2idx, idx2token
@@ -38,7 +38,7 @@ def load_data(fpath1, fpath2, maxlen1, maxlen2):
     sents2: list of target sents
     '''
     sents1, sents2 = [], []
-    with open(fpath1, 'r') as f1, open(fpath2, 'r') as f2:
+    with open(fpath1, 'r',encoding='UTF-8') as f1, open(fpath2, 'r',encoding='UTF-8') as f2:
         for sent1, sent2 in zip(f1, f2):
             if len(sent1.split()) + 1 > maxlen1: continue # 1: </s>
             if len(sent2.split()) + 1 > maxlen2: continue  # 1: </s>
