@@ -103,7 +103,7 @@ def scaled_dot_product_attention(Q, K, V, key_masks,
 def mask(inputs, key_masks=None, type=None):
     """Masks paddings on keys or queries to inputs
     inputs: 3d tensor. (h*N, T_q, T_k)
-    key_masks: 3d tensor. (N, 1, T_k)
+    key_masks: 2d tensor. (N, T_k)
     type: string. "key" | "future"
 
     e.g.,
