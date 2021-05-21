@@ -1,4 +1,4 @@
-tensorflow==1.12.0
+tensorflow==2.5.0
 numpy>=1.15.4
 sentencepiece==0.1.8
 tqdm>=4.28.1
