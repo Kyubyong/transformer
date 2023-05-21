@@ -35,7 +35,7 @@ def prepro(hp):
     logging.info("# Preprocessing")
     # train
     _prepro = lambda x:  [line.strip() for line in open(x, 'r').read().split("\n") \
-                      if not line.startswith("<")]
+                      if not (line.startswith("<") or line.startswith(" <"))]
     prepro_train1, prepro_train2 = _prepro(train1), _prepro(train2)
     assert len(prepro_train1)==len(prepro_train2), "Check if train source and target files match."
 
